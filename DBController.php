@@ -1,16 +1,18 @@
 <?php
 //https://codeshack.io/super-fast-php-mysql-database-class/
+require 'db_config.php';
+date_default_timezone_set(TIMEZONE);
 class db {
     protected $connection;
 	protected $query;
     protected $show_errors = TRUE;
     protected $query_closed = TRUE;
 	public $query_count = 0;
-	private $dbhost = 'localhost';
-	private $dbuser = 'root';
-	private $dbpass = '';
-	private $dbname = 'praveen';
-	private $charset = 'utf8';
+	private $dbhost = DBHOST;
+	private $dbuser = DBUSER;
+	private $dbpass = DBPASS;
+	private $dbname = DBNAME;
+	private $charset = CHARSET;
 
 	public function __construct() {
 		$this->connection = new mysqli($this->dbhost, $this->dbuser, $this->dbpass, $this->dbname);
